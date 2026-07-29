@@ -1,3 +1,4 @@
+const img = (path) => `${import.meta.env.BASE_URL}${path}`;
 const navLinks = [
   {
     name: "About Us",
@@ -30,46 +31,43 @@ const counterItems = [
 const logoIconsList = [
   {
     name: "Carousel 1",
-    imgPath: "/images/logos/carousel1.jpg",
+    imgPath: img("images/logos/carousel1.jpg"),
   },
   {
     name: "Carousel 2",
-    imgPath: "/images/logos/carousel2.jpg",
+    imgPath: img("images/logos/carousel2.jpg"),
   },
   {
     name: "Carousel 3",
-    imgPath: "/images/logos/carousel3.jpg",
+    imgPath: img("images/logos/carousel3.jpg"),
   },
-
   {
     name: "Decor",
-    imgPath: "/images/decor.jpg",
+    imgPath: img("images/decor.jpg"),
   },
-
   {
     name: "Gabe Employees",
-    imgPath: "/images/gabeNemployees.jpg",
+    imgPath: img("images/gabeNemployees.jpg"),
   },
-
   {
     name: "Gabe and Daughter",
-    imgPath: "/images/gabeNdaughter.jpg",
+    imgPath: img("images/gabeNdaughter.jpg"),
   },
 ];
 
 const abilities = [
   {
-    imgPath: "/images/seo.png",
+    imgPath: img("images/seo.png"),
     title: "Quality Focus",
     desc: "Delivering high-quality results while maintaining attention to every detail.",
   },
   {
-    imgPath: "/images/chat.png",
+    imgPath: img("images/chat.png"),
     title: "Reliable Communication",
     desc: "Keeping you updated at every step to ensure transparency and clarity.",
   },
   {
-    imgPath: "/images/time.png",
+    imgPath: img("images/time.png"),
     title: "On-Time Delivery",
     desc: "Making sure projects are completed on schedule, with quality & attention to detail.",
   },
@@ -133,8 +131,8 @@ const techStackIcons = [
 
 const expCards = [
   {
-    imgPath: "/images/fish.png",
-    logoPath: "/images/fish.png",
+    imgPath: img("images/fish.png"),
+    logoPath: img("images/fish.png"),
     title: "Friday Fish Fry",
     date: "Every Friday • 6:00 PM",
     responsibilities: [
@@ -144,8 +142,8 @@ const expCards = [
     ],
   },
   {
-    imgPath: "/images/ribs.jpg",
-    logoPath: "/images/ribs.jpg",
+    imgPath: img("images/ribs.jpg"),
+    logoPath: img("images/ribs.jpg"),
     title: "Smoked Rib Night",
     date: "Saturdays • 7:00 PM",
     responsibilities: [
@@ -155,8 +153,8 @@ const expCards = [
     ],
   },
   {
-    imgPath: "/images/oxtail.jpg",
-    logoPath: "/images/oxtail.jpg",
+    imgPath: img("images/oxtail.jpg"),
+    logoPath: img("images/oxtail.jpg"),
     title: "Sunday Oxtail Special",
     date: "Sundays • 4:00 PM",
     responsibilities: [

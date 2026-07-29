@@ -6,6 +6,8 @@ import { useGSAP } from '@gsap/react'
 import gsap from 'gsap';
 import AnimatedCounter from '../components/AnimatedCounter'
 // run with npm run dev
+const img = (path) => `${import.meta.env.BASE_URL}${path}`;
+
 
 
 const Hero = () => {
@@ -28,13 +30,23 @@ const Hero = () => {
   })
 
   return (
-    <section id="hero" style={{background: 'linear-gradient(to-right, #000, #fff)'}} className='relative overflow-hidden'>
+    <section id="hero" style={{ background: 'linear-gradient(to-right, #000, #fff)' }} className='relative overflow-hidden'>
       {/* <div className='absolute top-0 left-0 z-10'>
         <img src="/images/bg.png" alt="Background" />
       </div> */}
 
       <div className='hero-layout'>
-        <img src='public\images\logos\mainPicture.jpg'/>
+        <img
+            style={{
+    height: "100vh",
+    width: "100vw",
+    objectFit: "cover",
+  }}
+
+          src={img("images/logos/mainPicture.jpg")}
+          alt="Main"
+          className="w-64 h-64 object-cover"
+        />
         {/* LEFT: Hero content */}
         {/* <header className='flex flex-col justify-center md:w-full w-screen md:px-20 px-5'>
           <div className='flex flex-col gap-7'>
@@ -81,7 +93,7 @@ const Hero = () => {
         </figure>
       </div>
 
-{/* // animated counter */}
+      {/* // animated counter */}
 
       {/* <AnimatedCounter /> */}
     </section>

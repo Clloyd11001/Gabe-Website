@@ -22,7 +22,7 @@ const NavBar = () => {
         <header className={`navbar ${scrolled ? "scrolled" : "not-scrolled"}`}>
             <div className="inner">
                 <a className="logo" href="#hero" style={{ display: "flex", alignItems: "center" }}>
-                    <img src="/images/mainLogo.png" alt="Main logo" style={{ height: "4rem", width: "auto", objectFit: "contain" }} />
+<img alt="Main logo" style={{ height: "4rem", width: "auto" }} src={`${import.meta.env.BASE_URL}images/mainLogo.png`} />
                 </a>
 
                 <button
@@ -41,7 +41,16 @@ const NavBar = () => {
                         {navLinks.map(({ link, name }) => (
                             <li key={name} className="group">
                                 <a href={link}>
-                                    <span style={{ WebkitTextStroke: '2px black', fontSize: "96px", color: "white", fontFamily: '-apple-system' }}>{name}</span>
+<span
+  style={{
+    WebkitTextStroke: "1px black",
+    fontSize: "1.2rem",
+    color: "white",
+    fontFamily: "-apple-system",
+  }}
+>
+  {name}
+</span>
                                     <span className="underline" />
                                 </a>
                             </li>

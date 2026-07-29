@@ -1,4 +1,5 @@
 import { logoIconsList } from "../constants";
+const img = (path) => `${import.meta.env.BASE_URL}${path}`;
 
 const LogoIcon = ({ icon }) => {
     const altText = icon.name || icon.imgPath?.split("/").pop()?.split(".")[0] || "logo";
@@ -22,9 +23,12 @@ const LogoSection = () => {
     const column1 = logoIconsList.slice(0, 3);
     const column2 = logoIconsList.slice(3, 6);
     const column3 = [
-        { imgPath: "/images/wings.jpg", name: "Wings" },
-        { imgPath: "/images/sour-curry-with-snakehead-fish-spicy-garden-hot-pot-thai-food.jpg", name: "Sour Curry" },
-        { imgPath: "/images/burger.jpg", name: "Burger" },
+         { imgPath: img("images/wings.jpg"), name: "Wings" },
+  {
+    imgPath: img("images/sour-curry-with-snakehead-fish-spicy-garden-hot-pot-thai-food.jpg"),
+    name: "Sour Curry",
+  },
+  { imgPath: img("images/burger.jpg"), name: "Burger" },
     ];
 
     const renderColumn = (items, reverse = false) => (

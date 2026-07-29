@@ -7,33 +7,34 @@ import { Autoplay } from "swiper/modules";
 
 import "swiper/css";
 
+const img = (path) => `${import.meta.env.BASE_URL}${path}`;
+
 const foodItems = [
     {
         name: "Jerk Chicken",
-        img: "/images/jerkChicken.jpg",
+        img: img("images/jerkChicken.jpg"),
     },
     {
         name: "Oxtail",
-        img: "/images/oxtail.jpg",
+        img: img("images/oxtail.jpg"),
     },
     {
         name: "Smoked Ribs",
-        img: "/images/ribs.jpg",
+        img: img("images/ribs.jpg"),
     },
     {
         name: "Fish Fry",
-        img: "/images/fish.png",
+        img: img("images/fish.png"),
     },
     {
         name: "Fried Shrimp",
-        img: "/images/shrimp.jpg",
+        img: img("images/shrimp.jpg"),
     },
     {
         name: "Mac & Cheese",
-        img: "/images/macNcheese.jpg",
+        img: img("images/macNcheese.jpg"),
     },
 ];
-
 const TechStack = () => {
     useGSAP(() => {
         gsap.from(".food-carousel", {
@@ -49,9 +50,9 @@ const TechStack = () => {
 
     return (
         <section id="skills" className="section-padding">
-            <div style={{fontFamily: "-apple-system"}}>
-            <TitleHeader title="Photo Shoot" />
-</div>
+            <div style={{ fontFamily: "-apple-system" }}>
+                <TitleHeader title="Photo Shoot" />
+            </div>
             <div className="food-carousel mt-10">
                 <Swiper
                     modules={[Autoplay]}

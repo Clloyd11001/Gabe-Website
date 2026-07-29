@@ -45,9 +45,13 @@ const ShowcaseSection = () => {
             <div className="w-full">
                 <div className="showcaselayout flex flex-col lg:flex-row lg:justify-between lg:items-start gap-10 lg:gap-16">
                     {/* LEFT*/}
-                    <div className="w-full lg:w-[55%] mx-auto md:mx-0" ref={project1Ref} style={{display: "flex", justifyContent: "center"}}>
+                    <div className="w-full lg:w-[55%] mx-auto md:mx-0" ref={project1Ref} style={{ display: "flex", justifyContent: "center" }}>
                         <div className="image-wrapper aspect-[3/4] md:aspect-[3/4] xl:aspect-[4/5] w-full max-w-[22rem] md:max-w-[24rem] xl:max-w-[26rem] overflow-hidden rounded-xl">
-                            <img className="h-full w-full object-cover object-top" src="/images/aboutUs.jpg" alt="About us" />
+                            <img
+                                className="h-full w-full object-cover object-top"
+                                src={`${import.meta.env.BASE_URL}images/aboutUs.jpg`}
+                                alt="About us"
+                            />
                         </div>
                     </div>
                     {/* RIGHT */}
@@ -60,7 +64,7 @@ const ShowcaseSection = () => {
                     </div> */}
 
                     <div className="project w-full lg:w-[40%] mx-auto md:mx-0" ref={project3Ref}>
-                        <p style={{fontFamily: "-apple-system", fontSize: "2rem"}} className="text-white-50 text-base md:text-xl leading-relaxed max-w-md mx-auto md:mx-0 lg:mt-10">
+                        <p style={{ fontFamily: "-apple-system", fontSize: "2rem" }} className="text-white-50 text-base md:text-xl leading-relaxed max-w-md mx-auto md:mx-0 lg:mt-10">
                             I was inspired by my parents, who taught me the value of hard work, family, and showing up for the people around us. That spirit is why my mother is the face of this company. We strive to be a meaningful part of the community and to serve delicious food that brings people together.
                         </p>
                     </div>
