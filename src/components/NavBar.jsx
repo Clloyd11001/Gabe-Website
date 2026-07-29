@@ -1,48 +1,71 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { navLinks } from "../constants/index";
-import { useState } from "react";
 
 const NavBar = () => {
     const [scrolled, setScrolled] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
-            const isScrolled = window.scrollY > 10;
-            setScrolled(true);
-        }
+            setScrolled(window.scrollY > 10);
+        };
 
+        handleScroll();
         window.addEventListener("scroll", handleScroll);
 
         return () => {
             window.removeEventListener("scroll", handleScroll);
-        }
-    })
-
-
+        };
+    }, []);
 
     return (
-        <header className={'navbar ${scrolled ? "scrolled" : "not-scrolled"}'}>
+        <header className={`navbar ${scrolled ? "scrolled" : "not-scrolled"}`}>
             <div className="inner">
-                <a className="logo" href="#hero">
-                    Collin | JSM
+                <a className="logo" href="#hero" style={{ display: "flex", alignItems: "center" }}>
+                    <img src="/images/mainLogo.png" alt="Main logo" style={{ height: "4rem", width: "auto", objectFit: "contain" }} />
                 </a>
+
+                <button
+                    className="mobile-menu-btn"
+                    onClick={() => setIsMenuOpen((prev) => !prev)}
+                    aria-label="Toggle navigation menu"
+                    aria-expanded={isMenuOpen}
+                >
+                    <span />
+                    <span />
+                    <span />
+                </button>
+
                 <nav className="desktop">
                     <ul>
-                        {navLinks.map(({link, name}) => (
+                        {navLinks.map(({ link, name }) => (
                             <li key={name} className="group">
                                 <a href={link}>
-                                    <span>{name}</span>
+                                    <span style={{ WebkitTextStroke: '2px black', fontSize: "96px", color: "white", fontFamily: '-apple-system' }}>{name}</span>
                                     <span className="underline" />
-
                                 </a>
                             </li>
                         ))}
                     </ul>
                 </nav>
 
+                <div className={`mobile-nav ${isMenuOpen ? "open" : ""}`}>
+                    <ul>
+                        {navLinks.map(({ link, name }) => (
+                            <li key={name}>
+                                <a  style={{fontFamily: '-apple-system'}} href={link} onClick={() => setIsMenuOpen(false)}>
+                                    {name}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+
                 <a href="#contact" className="contact-btn group">
-                    <div className="inner">
-                        <span>Contact Me</span>
+                    <div className="inner" style={{ display: "flex", background: "transparent", color: "white", fontSize: "1.5rem" }}>
+                        <div style={{ fontFamily: '-apple-system' }}>
+                            <div>Book Me</div>
+                        </div>
                     </div>
                 </a>
             </div>

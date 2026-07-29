@@ -93,18 +93,19 @@ const ExperienceSection = () => {
     // ensure the section is at least one viewport tall so all cards can appear
     <section id="experience" className="md:mt-40 mt-20 section-padding xl:px-0 min-h-screen">
   <div className="w-full h-full md:px-20 px-5 pb-40">
-        <TitleHeader
-          title="Professional Work Experience"
-          sub="💼 My Career Overview"
+    <div style={{ fontFamily: "-apple-system" }}>
+        <TitleHeader 
+          title="Previous Events"
         />
+        </div>
         <div className="mt-32 relative">
           <div className="relative z-50 xl:space-y-32 space-y-10">
             {expCards.map((card) => (
               <div key={card.title} className="exp-card-wrapper">
                 <div className="xl:w-2/6">
                   <GlowCard card={card}>
-                    <div>
-                      <img src={card.imgPath} alt="exp-img" />
+                    <div className="flex justify-center w-full">
+                      <img src={card.imgPath} alt="exp-img" className="max-h-64 object-contain" />
                     </div>
                   </GlowCard>
                 </div>
@@ -114,7 +115,7 @@ const ExperienceSection = () => {
                       <div className="timeline" />
                       <div className="gradient-line w-1 h-full" />
                     </div>
-                    <div className="expText flex xl:gap-20 md:gap-10 gap-5 relative z-20">
+                    <div className="expText flex xl:gap-20 md:gap-10 gap-5 relative z-20" style={{ fontFamily: "-apple-system" }}>
                       <div className="timeline-logo">
                         <img src={card.logoPath} alt="logo" />
                       </div>
@@ -124,7 +125,7 @@ const ExperienceSection = () => {
                           🗓️&nbsp;{card.date}
                         </p>
                         <p className="text-[#839CB5] italic">
-                          Responsibilities
+                          Event Details
                         </p>
                         <ul className="list-disc ms-5 mt-5 flex flex-col gap-5 text-white-50">
                           {card.responsibilities.map(

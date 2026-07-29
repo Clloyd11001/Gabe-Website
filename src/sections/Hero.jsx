@@ -28,14 +28,15 @@ const Hero = () => {
   })
 
   return (
-    <section id="hero" className='relative overflow-hidden'>
-      <div className='absolute top-0 left-0 z-10'>
+    <section id="hero" style={{background: 'linear-gradient(to-right, #000, #fff)'}} className='relative overflow-hidden'>
+      {/* <div className='absolute top-0 left-0 z-10'>
         <img src="/images/bg.png" alt="Background" />
-      </div>
+      </div> */}
 
       <div className='hero-layout'>
+        <img src='public\images\logos\mainPicture.jpg'/>
         {/* LEFT: Hero content */}
-        <header className='flex flex-col justify-center md:w-full w-screen md:px-20 px-5'>
+        {/* <header className='flex flex-col justify-center md:w-full w-screen md:px-20 px-5'>
           <div className='flex flex-col gap-7'>
             <div className='hero-text'>
               <h1>Shaping
@@ -70,19 +71,19 @@ const Hero = () => {
               text="See my Work"
             />
           </div>
-        </header>
+        </header> */}
         {/* RIGHT: 3d model */}
         {/* means something important right here */}
         <figure>
-          <div className='hero-3d-layout'>
+          {/* <div className='hero-3d-layout'>
             <HeroExperience />
-          </div>
+          </div> */}
         </figure>
       </div>
 
 {/* // animated counter */}
 
-      <AnimatedCounter />
+      {/* <AnimatedCounter /> */}
     </section>
   )
 }

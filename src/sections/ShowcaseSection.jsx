@@ -43,32 +43,26 @@ const ShowcaseSection = () => {
     return (
         <section id="work" ref={sectionRef} className="app-showcase">
             <div className="w-full">
-                <div className="showcaselayout">
+                <div className="showcaselayout flex flex-col lg:flex-row lg:justify-between lg:items-start gap-10 lg:gap-16">
                     {/* LEFT*/}
-                    <div className="first-project-wrapper" ref={project1Ref}>
-                        <div className="image-wrapper">
-                            <img src="/images/project1.png" alt="Ryde" />
-                        </div>
-
-                        <div className="text-content">
-                            <h2>On-Demand Rides Made Simple with a Powerful, User-Friendly App Called Ryde</h2>
-                            <p className="text-white-50 md:text-xl"> An app built with React Native</p>
+                    <div className="w-full lg:w-[55%] mx-auto md:mx-0" ref={project1Ref} style={{display: "flex", justifyContent: "center"}}>
+                        <div className="image-wrapper aspect-[3/4] md:aspect-[3/4] xl:aspect-[4/5] w-full max-w-[22rem] md:max-w-[24rem] xl:max-w-[26rem] overflow-hidden rounded-xl">
+                            <img className="h-full w-full object-cover object-top" src="/images/aboutUs.jpg" alt="About us" />
                         </div>
                     </div>
                     {/* RIGHT */}
-                    <div className="project-list-wrapper overflow-hidden">
+                    {/* <div className="project-list-wrapper overflow-hidden">
                         <div className="project" ref={project2Ref}>
                             <div className="image-wrapper bg-[#ffefdb]">
                                 <img src="/images/project2.png" alt="Library Management" />
                             </div>
                         </div>
-                    </div>
+                    </div> */}
 
-                    <div className="project" ref={project3Ref}>
-                        <div className="image-wrapper bg-[#ffe7eb]">
-                            <img src="/images/project3.png" alt="YC Directory" />
-                        </div>
-                        <h2>YC Directory</h2>
+                    <div className="project w-full lg:w-[40%] mx-auto md:mx-0" ref={project3Ref}>
+                        <p style={{fontFamily: "-apple-system", fontSize: "2rem"}} className="text-white-50 text-base md:text-xl leading-relaxed max-w-md mx-auto md:mx-0 lg:mt-10">
+                            I was inspired by my parents, who taught me the value of hard work, family, and showing up for the people around us. That spirit is why my mother is the face of this company. We strive to be a meaningful part of the community and to serve delicious food that brings people together.
+                        </p>
                     </div>
                 </div>
             </div>

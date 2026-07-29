@@ -1,75 +1,93 @@
 import { useGSAP } from "@gsap/react";
-import TechIcon from "../components/Models/TechLogos/TechIcon";
-import TitleHeader from "../components/TitleHeader";
-import { techStackIcons, techStackImgs } from "../constants";
 import gsap from "gsap";
+import TitleHeader from "../components/TitleHeader";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+
+import "swiper/css";
+
+const foodItems = [
+    {
+        name: "Jerk Chicken",
+        img: "/images/jerkChicken.jpg",
+    },
+    {
+        name: "Oxtail",
+        img: "/images/oxtail.jpg",
+    },
+    {
+        name: "Smoked Ribs",
+        img: "/images/ribs.jpg",
+    },
+    {
+        name: "Fish Fry",
+        img: "/images/fish.png",
+    },
+    {
+        name: "Fried Shrimp",
+        img: "/images/shrimp.jpg",
+    },
+    {
+        name: "Mac & Cheese",
+        img: "/images/macNcheese.jpg",
+    },
+];
 
 const TechStack = () => {
-
-
     useGSAP(() => {
-        gsap.fromTo(".tech-card", {
+        gsap.from(".food-carousel", {
             opacity: 0,
             y: 50,
-        }, {
-            y: 0,
-            opacity: 1,
             duration: 1,
-            ease: "power2.inOut",
-            stagger: 0.2,
             scrollTrigger: {
                 trigger: "#skills",
                 start: "top center",
             },
-        })
-    })
+        });
+    });
 
     return (
-        <div id="skills" className="flex-center section-padding">
-            <div className="w-full h-full md:px-10 px-5">
-                <TitleHeader title="My Preferred Tech Stack"
-                    sub="🤝 The Skills I Bring to the Table" />
-
-                <div className="tech-grid">
-                    {techStackIcons.map((icon) => (
-
-                        <div key={icon.name} className="card-border tech-card
-                        overflow-hidden group xl:rounded-full rounded-lg">
-                            <div className="tech-card-animated-bg" />
-                            <div className="tech-card-content">
-                                <div className="tech-icon-wrapper">
-                                    <TechIcon model={icon} />
-                                </div>
-
-                                <div className="padding-x w-full">
-                                    <p>{icon.name}</p>
-
-                                </div>
+        <section id="skills" className="section-padding">
+            <div style={{fontFamily: "-apple-system"}}>
+            <TitleHeader title="Photo Shoot" />
+</div>
+            <div className="food-carousel mt-10">
+                <Swiper
+                    modules={[Autoplay]}
+                    loop={true}
+                    autoplay={{
+                        delay: 3000,
+                        disableOnInteraction: false,
+                    }}
+                    spaceBetween={30}
+                    slidesPerView={3}
+                    breakpoints={{
+                        0: {
+                            slidesPerView: 1,
+                        },
+                        768: {
+                            slidesPerView: 2,
+                        },
+                        1024: {
+                            slidesPerView: 3,
+                        },
+                    }}
+                >
+                    {foodItems.map((food) => (
+                        <SwiperSlide key={food.name}>
+                            <div className="overflow-hidden rounded-3xl shadow-lg">
+                                <img
+                                    src={food.img}
+                                    alt={food.name}
+                                    className="h-[500px] w-full object-cover transition-transform duration-500 hover:scale-105"
+                                />
                             </div>
-                        </div>
+                        </SwiperSlide>
                     ))}
-
-
-                    {/* this is how you do it for images */}
-                    {/* {techStackImgs.map((icon) => (
-                        <div key={icon.name} className="card-border tech-card
-                        overflow-hidden group xl:rounded-full rounded-lg">
-
-                            <div className="tech-card-animated-bg" />
-                            <div className="tech-card-content">
-                                <div className="tech-icon-wrapper">
-                                    <img src={icon.imgPath} />
-                                </div>
-
-                                <div className="padding-x w-full">
-                                    <p>{icon.name} </p>
-                                </div>
-                            </div>
-                        </div>
-                    ))} */}
-                </div>
+                </Swiper>
             </div>
-        </div>
+        </section>
     );
 };
 

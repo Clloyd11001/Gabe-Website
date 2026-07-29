@@ -1,37 +1,51 @@
 import { logoIconsList } from "../constants";
 
-
 const LogoIcon = ({ icon }) => {
-    return (
-        <div className="flex-none flex-center marquee-item">
+    const altText = icon.name || icon.imgPath?.split("/").pop()?.split(".")[0] || "logo";
 
-            <img src={icon.imgPath} alt={icon.name} />
+    return (
+        <div className="flex-none marquee-item w-full h-40 md:h-48 overflow-hidden rounded-lg">
+            <img
+                src={icon.imgPath}
+                alt={altText}
+                onError={(event) => {
+                    event.currentTarget.onerror = null;
+                    event.currentTarget.src = "/images/fav.png";
+                }}
+                className="h-full w-full object-cover object-center rounded-lg"
+            />
         </div>
-    )
-}
+    );
+};
 
 const LogoSection = () => {
+    const column1 = logoIconsList.slice(0, 3);
+    const column2 = logoIconsList.slice(3, 6);
+    const column3 = [
+        { imgPath: "/images/wings.jpg", name: "Wings" },
+        { imgPath: "/images/sour-curry-with-snakehead-fish-spicy-garden-hot-pot-thai-food.jpg", name: "Sour Curry" },
+        { imgPath: "/images/burger.jpg", name: "Burger" },
+    ];
+
+    const renderColumn = (items, reverse = false) => (
+        <div className={`marquee-track ${reverse ? "marquee-track-reverse" : ""}`}>
+            {[...items, ...items].map((icon, idx) => (
+                <LogoIcon key={`${icon.imgPath}-${idx}`} icon={icon} />
+            ))}
+        </div>
+    );
+
     return (
-        <div className="md my-20 my-10 relative">
+        <div className="md:my-20 my-10 relative">
             <div className="gradient-edge" />
             <div className="gradient-edge" />
 
-            <div className="marquee h-52">
-                {/* animation to the left, look in css */}
-                <div className="marquee-box md:gap-12 gap-5">
-                    {logoIconsList.map((icon, idx) => (
-                        // use imgPath + index as a stable unique key (logo objects don't have `name`)
-                        <LogoIcon key={`${icon.imgPath}-${idx}`} icon={icon} />
-                    ))}
-
-                    {/* if you need the logos duplicated for the marquee, concatenate the array
-                        and include the index to keep keys unique:
-                        {logoIconsList.concat(logoIconsList).map((icon, idx) => (
-                            <LogoIcon key={`${icon.imgPath}-${idx}`} icon={icon} />
-                        ))}
-                    */}
+            <div className="marquee h-[56rem]">
+                <div className="marquee-grid h-full">
+                    <div className="marquee-column">{renderColumn(column1)}</div>
+                    <div className="marquee-column">{renderColumn(column2, true)}</div>
+                    <div className="marquee-column">{renderColumn(column3)}</div>
                 </div>
-
             </div>
         </div>
     );
