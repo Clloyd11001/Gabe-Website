@@ -22,7 +22,7 @@ const NavBar = () => {
         <header className={`navbar ${scrolled ? "scrolled" : "not-scrolled"}`}>
             <div className="inner">
                 <a className="logo" href="#hero" style={{ display: "flex", alignItems: "center" }}>
-<img alt="Main logo" style={{ height: "4rem", width: "auto" }} src={`${import.meta.env.BASE_URL}images/mainLogo.png`} />
+                    <img alt="Main logo" style={{ height: "4rem", width: "auto" }} src={`${import.meta.env.BASE_URL}images/mainLogo.png`} />
                 </a>
 
                 <button
@@ -41,16 +41,16 @@ const NavBar = () => {
                         {navLinks.map(({ link, name }) => (
                             <li key={name} className="group">
                                 <a href={link}>
-<span
-  style={{
-    WebkitTextStroke: "1px black",
-    fontSize: "1.2rem",
-    color: "white",
-    fontFamily: "-apple-system",
-  }}
->
-  {name}
-</span>
+                                    <span
+                                        style={{
+                                            WebkitTextStroke: "1px black",
+                                            fontSize: "4rem",
+                                            color: "white",
+                                            fontFamily: "-apple-system",
+                                        }}
+                                    >
+                                        {name}
+                                    </span>
                                     <span className="underline" />
                                 </a>
                             </li>
@@ -62,7 +62,7 @@ const NavBar = () => {
                     <ul>
                         {navLinks.map(({ link, name }) => (
                             <li key={name}>
-                                <a  style={{fontFamily: '-apple-system'}} href={link} onClick={() => setIsMenuOpen(false)}>
+                                <a style={{ fontFamily: '-apple-system' }} href={link} onClick={() => setIsMenuOpen(false)}>
                                     {name}
                                 </a>
                             </li>

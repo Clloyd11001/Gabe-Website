@@ -48,8 +48,8 @@ const ShowcaseSection = () => {
                     <div className="w-full lg:w-[55%] mx-auto md:mx-0" ref={project1Ref} style={{ display: "flex", justifyContent: "center" }}>
                         <div className="image-wrapper aspect-[3/4] md:aspect-[3/4] xl:aspect-[4/5] w-full max-w-[22rem] md:max-w-[24rem] xl:max-w-[26rem] overflow-hidden rounded-xl">
                             <img
-                                className="h-full w-full object-cover object-top"
-                                src={`${import.meta.env.BASE_URL}images/aboutUs.jpg`}
+                            style={{height: "70%", width: "100%"}}
+                                src={`${import.meta.env.BASE_URL}images/basketballTeam.jpg`}
                                 alt="About us"
                             />
                         </div>
@@ -65,7 +65,7 @@ const ShowcaseSection = () => {
 
                     <div className="project w-full lg:w-[40%] mx-auto md:mx-0" ref={project3Ref}>
                         <p style={{ fontFamily: "-apple-system", fontSize: "2rem" }} className="text-white-50 text-base md:text-xl leading-relaxed max-w-md mx-auto md:mx-0 lg:mt-10">
-                            I was inspired by my parents, who taught me the value of hard work, family, and showing up for the people around us. That spirit is why my mother is the face of this company. We strive to be a meaningful part of the community and to serve delicious food that brings people together.
+Queen City Cuisine is the proud sponsor of the Finneytown Wildcats girls basketball team. We provide them with team logo warmup suits and cater their basketball season ending banquet.
                         </p>
                     </div>
                 </div>

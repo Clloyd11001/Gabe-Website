@@ -23,6 +23,8 @@ const Contact = () => {
     setLoading(true); // Show loading state
 
     try {
+      console.log(import.meta.env);
+
       await emailjs.sendForm(
         import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
@@ -30,10 +32,9 @@ const Contact = () => {
         import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
       );
 
-      // Reset form and stop loading
-      setForm({ name: "", email: "", message: "" });
+      console.log("Email sent!");
     } catch (error) {
-      console.error("EmailJS Error:", error); // Optional: show toast
+      console.error(error);
     } finally {
       setLoading(false); // Always stop loading, even on error
     }
@@ -62,7 +63,7 @@ const Contact = () => {
                     name="name"
                     value={form.name}
                     onChange={handleChange}
-                    placeholder="What’s your good name?"
+                    placeholder="What’s a good name for you?"
                     required
                   />
                 </div>

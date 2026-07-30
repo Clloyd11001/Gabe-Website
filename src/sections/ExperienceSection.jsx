@@ -92,20 +92,39 @@ const ExperienceSection = () => {
   return (
     // ensure the section is at least one viewport tall so all cards can appear
     <section id="experience" className="md:mt-40 mt-20 section-padding xl:px-0 min-h-screen">
-  <div className="w-full h-full md:px-20 px-5 pb-40">
-    <div style={{ fontFamily: "-apple-system" }}>
-        <TitleHeader 
-          title="Previous Events"
-        />
+      <div className="w-full h-full md:px-20 px-5 pb-40">
+        <div style={{ fontFamily: "-apple-system" }}>
+          <TitleHeader
+            title="Previous Events"
+          />
         </div>
         <div className="mt-32 relative">
           <div className="relative z-50 xl:space-y-32 space-y-10">
             {expCards.map((card) => (
               <div key={card.title} className="exp-card-wrapper">
-                <div className="xl:w-2/6">
+                <div
+                  style={{ display: "flex", justifyContent: "center" }}
+                  className="xl:w-2/6"
+                >
                   <GlowCard card={card}>
                     <div className="flex justify-center w-full">
-                      <img src={card.imgPath} alt="exp-img" className="max-h-64 object-contain" />
+                      {card.imgPath.endsWith(".mp4") ? (
+                        <video
+                          src={card.imgPath}
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          className="max-h-64 object-contain"
+                          style={{ width: "100%"}}
+                        />
+                      ) : (
+                        <img
+                          src={card.imgPath}
+                          alt="exp-img"
+                          className="max-h-64 object-contain"
+                        />
+                      )}
                     </div>
                   </GlowCard>
                 </div>

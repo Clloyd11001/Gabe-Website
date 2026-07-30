@@ -131,25 +131,24 @@ const techStackIcons = [
 
 const expCards = [
   {
-    imgPath: img("images/fish.png"),
-    logoPath: img("images/fish.png"),
-    title: "Friday Fish Fry",
-    date: "Every Friday • 6:00 PM",
+    imgPath: "/images/food.mp4",
+    title: "Ribs Banquet",
+    date: "Available for Catering",
+
     responsibilities: [
-      "Prepared fresh fish plates for the evening crowd.",
-      "Coordinated the grill station with quick, friendly service.",
-      "Kept the kitchen organized during peak dinner hours.",
-    ],
+  "A signature pairing of slow-smoked ribs, seasoned chicken wings, and savory green beans.",
+  "Prepared with care and elegantly presented to create a memorable dining experience.",
+  "An exceptional choice for weddings, private celebrations, corporate events, and every occasion worth celebrating.",
+],
   },
   {
-    imgPath: img("images/ribs.jpg"),
-    logoPath: img("images/ribs.jpg"),
-    title: "Smoked Rib Night",
+    imgPath: "/images/decoration.mp4",
+    title: "Extravagant Decor",
     date: "Saturdays • 7:00 PM",
     responsibilities: [
-      "Managed the rib prep and seasoning station.",
-      "Oversaw plating and garnish for a polished presentation.",
-      "Helped create a lively atmosphere for weekend guests.",
+      "Beautifully decorated buffet displays tailored to your event theme.",
+      "Custom décor and elegant presentation to create a memorable experience.",
+      "Perfect for weddings, birthdays, corporate events, and other special occasions.",
     ],
   },
   {
